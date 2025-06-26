@@ -1,0 +1,15 @@
+# Requirements for Knapsack Problem Solver
+# Problema da Mochila - RPG Scenario
+
+# AMPL Python API (optional)
+# Uncomment the line below if you want to use AMPL solver
+# amplpy>=0.8.0
+
+# Standard library modules used:
+# - sys (built-in)
+# - os (built-in) 
+# - typing (built-in)
+
+# Note: This project is designed to work with Python standard library
+# The AMPL solver is optional and requires separate installation
+# For the alternative solver using dynamic programming, no external dependencies are needed
