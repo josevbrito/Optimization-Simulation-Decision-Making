@@ -1,23 +1,27 @@
-# Optimization and Simulation for Decision Making
+# Otimização e Simulação para Tomada de Decisão
 
-This repository contains activities and projects related to the course **Optimization-Simulation for Decision Making** in the Master's program in Computer Science.
+Este repositório contém atividades e projetos relacionados à disciplina **Otimização-Simulação para Tomada de Decisão** do curso de Mestrado em Ciência da Computação.
 
-## About
-- **Course**: Optimization-Simulation for Decision Making (Master's in Computer Science)
-- **Institution**: Federal University of Maranhão (UFMA) - Brazil
-- **Professor**: Alexandre César Muniz de Oliveira  
-- **Author**: José Brito
+## Sobre
 
-## Contents
-This repository includes:
-- Optimization algorithms
-- Simulation techniques
-- Decision-making models
-- Code implementations and reports
+* **Disciplina**: Otimização-Simulação para Tomada de Decisão (Mestrado em Ciência da Computação)
+* **Instituição**: Universidade Federal do Maranhão (UFMA) - Brasil
+* **Professor**: Alexandre César Muniz de Oliveira
+* **Autor**: José Brito
 
-## How to Use
-Feel free to explore the content, use the code, and modify it for your learning or projects. Contributions and feedback are welcome!
+## Conteúdo
 
-## Support
-If you find this repository helpful, consider giving it a ⭐ and sharing it with others!
+Este repositório inclui:
 
+* Algoritmos de otimização
+* Técnicas de simulação
+* Modelos de tomada de decisão
+* Implementações de código e relatórios
+
+## Como Usar
+
+Sinta-se à vontade para explorar o conteúdo, utilizar o código e modificá-lo para seus estudos ou projetos. Contribuições e feedbacks são bem-vindos!
+
+## Apoio
+
+Se você achar este repositório útil, considere deixá-lo com uma ⭐ e compartilhá-lo com outras pessoas!
