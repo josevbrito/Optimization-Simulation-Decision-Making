@@ -1,154 +1,165 @@
-# Problema da Mochila - Cenário RPG 🎮
+# Knapsack Problem - RPG Scenario 🎮
 
-Este projeto implementa diferentes solucionadores para o **Problema da Mochila** usando um cenário de RPG onde um aventureiro deve escolher quais tesouros carregar em sua mochila para maximizar o valor total, respeitando o limite de peso de 10kg.
+This project implements different solvers for the **Knapsack Problem** using an RPG scenario where an adventurer must choose which treasures to carry in their backpack to maximize the total value, while respecting a 10kg weight limit.
 
-## 📁 Estrutura dos Arquivos
+## 📁 File Structure
 
 ```
-├── knapsack_data.py          # Dados do problema (itens, pesos, valores)
-├── ampl_files_generator.py   # Gerador de arquivos AMPL (.mod, .dat, .run)
-├── ampl_solver.py           # Solucionador usando AMPL
-├── alternative_solver.py    # Solucionador usando Programação Dinâmica
-├── main.py                  # Arquivo principal com menu interativo
-├── requirements.txt         # Dependências do projeto
-└── README.md               # Este arquivo
-```
 
-## 🎯 Descrição do Problema
+├── knapsack\_data.py          \# Problem data (items, weights, values)
+├── ampl\_files\_generator.py   \# AMPL file generator (.mod, .dat, .run)
+├── ampl\_solver.py           \# Solver using AMPL
+├── alternative\_solver.py    \# Solver using Dynamic Programming
+├── main.py                  \# Main file with interactive menu
+├── requirements.txt         \# Project dependencies
+└── README.md               \# This file
 
-**Cenário**: Um aventureiro encontrou 10 tesouros valiosos durante uma caça ao tesouro, mas sua mochila só suporta **10kg**. Qual combinação de itens maximiza o valor total?
+````
 
-### 🏺 Itens Disponíveis
+## 🎯 Problem Description
 
-| Item               | Peso (kg) | Valor ($) | Descrição                                                           |
-|--------------------|-----------|-----------|---------------------------------------------------------------------|
-| Moeda Antiga       | 1.0       | 300       | Moeda de ouro rara, valiosa para colecionadores                     |
-| Diamante           | 2.0       | 1500      | Pedra preciosa encontrada em um baú misterioso                      |
-| Barra de Ouro      | 5.0       | 2500      | Barra de ouro puro, mas muito pesada                                |
-| Colar de Prata     | 1.5       | 800       | Colar de prata decorado com pedras preciosas                        |
-| Poção Mágica       | 3.0       | 1200      | Poção mágica de valor inestimável para alquimistas                  |
-| Livro Antigo       | 2.5       | 500       | Livro antigo contendo segredos perdidos da civilização              |
-| Coroa              | 4.0       | 2200      | Coroa real incrustada com rubis e safiras                           |
-| Estátua de Jade    | 6.0       | 2800      | Estatueta de jade sagrado, venerada por povos antigos               |
-| Anel de Safira     | 0.5       | 900       | Anel de safira que pertencia a um rei lendário                      |
-| Mapa do Tesouro    | 1.0       | 1100      | Mapa que leva a um tesouro escondido, valioso para caçadores        |
+**Scenario**: An adventurer found 10 valuable treasures during a treasure hunt, but their backpack can only hold **10kg**. Which combination of items maximizes the total value?
 
-## 🚀 Como Executar
+### 🏺 Available Items
 
-### Execução Simples
+| Item               | Weight (kg) | Value ($) | Description                                                         |
+|--------------------|-------------|-----------|---------------------------------------------------------------------|
+| Ancient Coin       | 1.0         | 300       | Rare gold coin, valuable to collectors                              |
+| Diamond            | 2.0         | 1500      | Precious stone found in a mysterious chest                          |
+| Gold Bar           | 5.0         | 2500      | Pure gold bar, but very heavy                                       |
+| Silver Necklace    | 1.5         | 800       | Silver necklace decorated with precious stones                      |
+| Magic Potion       | 3.0         | 1200      | Priceless magic potion for alchemists                               |
+| Ancient Book       | 2.5         | 500       | Ancient book containing lost secrets of civilization                |
+| Crown              | 4.0         | 2200      | Royal crown encrusted with rubies and sapphires                     |
+| Jade Statue        | 6.0         | 2800      | Sacred jade figurine, revered by ancient peoples                    |
+| Sapphire Ring      | 0.5         | 900       | Sapphire ring that belonged to a legendary king                     |
+| Treasure Map       | 1.0         | 1100      | Map leading to hidden treasure, valuable to hunters                 |
+
+## 🚀 How to Run
+
+### Simple Execution
 ```bash
 python main.py
-```
+````
 
-### Executar Módulos Individualmente
+### Run Modules Individually
 
-1. **Ver dados do problema:**
+1.  **View problem data:**
 ```bash
 python knapsack_data.py
 ```
 
-2. **Gerar arquivos AMPL:**
+2.  **Generate AMPL files:**
 ```bash
 python ampl_files_generator.py
 ```
 
-3. **Executar solucionador alternativo:**
+3.  **Run alternative solver:**
 ```bash
 python alternative_solver.py
 ```
 
-4. **Executar solucionador AMPL (se disponível):**
+4.  **Run AMPL solver (if available):**
 ```bash
 python ampl_solver.py
 ```
 
-## 🔧 Instalação
+## 🔧 Installation
 
-### Dependências Básicas
-O projeto funciona apenas com a biblioteca padrão do Python (sem dependências externas).
+### Basic Dependencies
 
-### Dependências Opcionais
-Para usar o solucionador AMPL:
+The project works with only the standard Python library (no external dependencies).
+
+### Optional Dependencies
+
+To use the AMPL solver:
+
 ```bash
 pip install amplpy
 ```
 
-## 📊 Métodos de Solução
+## 📊 Solution Methods
 
-### 1. **Solucionador AMPL** (`ampl_solver.py`)
-- Usa modelagem matemática profissional
-- Requer instalação do `amplpy`
-- Gera arquivos .mod, .dat e .run automaticamente
-- Garante solução ótima
+### 1\. **AMPL Solver** (`ampl_solver.py`)
 
-### 2. **Programação Dinâmica** (`alternative_solver.py`)
-- Implementação pura em Python
-- Algoritmo clássico para o problema da mochila
-- Complexidade: O(n × W)
-- Garante solução ótima
-- Não requer dependências externas
+  - Uses professional mathematical modeling
+  - Requires `amplpy` installation
+  - Automatically generates .mod, .dat, and .run files
+  - Guarantees optimal solution
 
-### 3. **Algoritmo Guloso** (para comparação)
-- Seleciona itens por maior valor/peso
-- Rápido mas não garante otimalidade
-- Usado para comparação com a solução ótima
+### 2\. **Dynamic Programming** (`alternative_solver.py`)
 
-## 🎮 Menu Interativo
+  - Pure Python implementation
+  - Classic algorithm for the knapsack problem
+  - Complexity: O(n × W)
+  - Guarantees optimal solution
+  - Requires no external dependencies
 
-O arquivo `main.py` oferece um menu com as seguintes opções:
+### 3\. **Greedy Algorithm** (for comparison)
+
+  - Selects items by highest value/weight ratio
+  - Fast but does not guarantee optimality
+  - Used for comparison with the optimal solution
+
+## 🎮 Interactive Menu
+
+The `main.py` file offers a menu with the following options:
 
 ```
-1. Ver informações do dataset
-2. Resolver com AMPL (se disponível)
-3. Resolver com Programação Dinâmica  
-4. Comparar soluções (DP vs Guloso)
-5. Gerar arquivos AMPL
-6. Executar análise completa
-0. Sair
+1. View dataset information
+2. Solve with AMPL (if available)
+3. Solve with Dynamic Programming
+4. Compare solutions (DP vs Greedy)
+5. Generate AMPL files
+6. Run full analysis
+0. Exit
 ```
 
-## 📈 Resultados Esperados
+## 📈 Expected Results
 
-**Solução Ótima:**
-- **Valor Total:** $6.800
-- **Peso Total:** 9.0 kg
-- **Itens Selecionados:**
-  - Anel de Safira (0.5 kg, $900)
-  - Colar de Prata (1.5 kg, $800)
-  - Coroa (4.0 kg, $2200)
-  - Diamante (2.0 kg, $1500)
-  - Mapa do Tesouro (1.0 kg, $1100)
-  - Moeda Antiga (1.0 kg, $300)
+**Optimal Solution:**
 
-## 🔬 Modelo Matemático
+  - **Total Value:** $6800
+  - **Total Weight:** 9.0 kg
+  - **Selected Items:**
+      - Sapphire Ring (0.5 kg, $900)
+      - Silver Necklace (1.5 kg, $800)
+      - Crown (4.0 kg, $2200)
+      - Diamond (2.0 kg, $1500)
+      - Treasure Map (1.0 kg, $1100)
+      - Ancient Coin (1.0 kg, $300)
 
-**Função Objetivo:**
+## 🔬 Mathematical Model
+
+**Objective Function:**
+
 ```
-Maximizar: Σ (valor[i] × incluir[i])
-```
-
-**Restrições:**
-```
-Σ (peso[i] × incluir[i]) ≤ 10 kg
-incluir[i] ∈ {0, 1}
+Maximize: Σ (value[i] × include[i])
 ```
 
-Onde `incluir[i]` é uma variável binária que indica se o item `i` foi selecionado.
+**Constraints:**
 
-## 📝 Arquivos AMPL Gerados
+```
+Σ (weight[i] × include[i]) ≤ 10 kg
+include[i] ∈ {0, 1}
+```
 
-- **mochila.mod**: Modelo matemático
-- **mochila.dat**: Dados do problema  
-- **mochila.run**: Script de execução com relatórios
+Where `include[i]` is a binary variable indicating whether item `i` has been selected.
 
-## 🤝 Contribuições
+## 📝 Generated AMPL Files
 
-Este projeto foi criado como material educacional para demonstrar diferentes abordagens para resolver o Problema da Mochila.
+  - **knapsack.mod**: Mathematical model
+  - **knapsack.dat**: Problem data
+  - **knapsack.run**: Execution script with reports
 
-## 📄 Autor
+## 🤝 Contributions
 
-**José Brito** - Implementação e documentação do cenário RPG
+This project was created as educational material to demonstrate different approaches to solving the Knapsack Problem.
 
----
+## 📄 Author
 
-*Divirta-se explorando diferentes algoritmos de otimização! 🎯*
+**José Brito** - Implementation and documentation of the RPG scenario
+
+-----
+
+*Have fun exploring different optimization algorithms\! 🎯*

@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Problema da Mochila - RPG Treasure Hunt
-Arquivo principal para executar diferentes solucionadores
-Autor: José Brito
+Knapsack Problem - RPG Treasure Hunt
+Main file to run different solvers
 """
 
 import sys
@@ -12,121 +11,121 @@ from alternative_solver import KnapsackDynamicSolver, compare_with_greedy
 
 def show_menu():
     """
-    Mostra o menu de opções
+    Displays the options menu
     """
     print("\n" + "="*60)
-    print("PROBLEMA DA MOCHILA - CENÁRIO RPG")
+    print("KNAPSACK PROBLEM - RPG SCENARIO")
     print("="*60)
-    print("Escolha uma opção:")
-    print("1. Ver informações do dataset")
-    print("2. Resolver com AMPL (se disponível)")
-    print("3. Resolver com Programação Dinâmica")
-    print("4. Comparar soluções (DP vs Guloso)")
-    print("5. Gerar arquivos AMPL")
-    print("6. Executar análise completa")
-    print("0. Sair")
+    print("Choose an option:")
+    print("1. View dataset information")
+    print("2. Solve with AMPL (if available)")
+    print("3. Solve with Dynamic Programming")
+    print("4. Compare solutions (DP vs Greedy)")
+    print("5. Generate AMPL files")
+    print("6. Run full analysis")
+    print("0. Exit")
     print("-"*60)
 
 def option_1():
-    """Mostra informações do dataset"""
+    """Shows dataset information"""
     print_dataset_info()
 
 def option_2():
-    """Resolve com AMPL"""
+    """Solves with AMPL"""
     if not AMPL_AVAILABLE:
-        print("\n❌ AMPL não está disponível.")
-        print("Para usar o solucionador AMPL, instale com: pip install amplpy")
+        print("\n❌ AMPL is not available.")
+        print("To use the AMPL solver, install with: pip install amplpy")
         return
     
     try:
         from ampl_files_generator import generate_all_ampl_files
         
-        print("\nResolvendo com AMPL...")
+        print("\nSolving with AMPL...")
         generate_all_ampl_files()
         
         solver = KnapsackAMPLSolver()
         if solver.solve_knapsack():
             solver.print_solution()
         else:
-            print("Falha ao resolver com AMPL.")
+            print("Failed to solve with AMPL.")
     except Exception as e:
-        print(f"Erro ao executar solucionador AMPL: {e}")
+        print(f"Error running AMPL solver: {e}")
 
 def option_3():
-    """Resolve com Programação Dinâmica"""
-    print("\nResolvendo com Programação Dinâmica...")
+    """Solves with Dynamic Programming"""
+    print("\nSolving with Dynamic Programming...")
     solver = KnapsackDynamicSolver()
     solver.solve()
     solver.print_solution()
 
 def option_4():
-    """Compara soluções"""
-    print("\nComparando soluções...")
+    """Compares solutions"""
+    print("\nComparing solutions...")
     compare_with_greedy()
 
 def option_5():
-    """Gera arquivos AMPL"""
+    """Generates AMPL files"""
     try:
         from ampl_files_generator import generate_all_ampl_files
-        print("\nGerando arquivos AMPL...")
+        print("\nGenerating AMPL files...")
         generate_all_ampl_files()
     except Exception as e:
-        print(f"Erro ao gerar arquivos AMPL: {e}")
+        print(f"Error generating AMPL files: {e}")
 
 def option_6():
-    """Executa análise completa"""
+    """Runs a full analysis"""
     print("\n" + "="*80)
-    print("ANÁLISE COMPLETA DO PROBLEMA DA MOCHILA")
+    print("FULL KNAPSACK PROBLEM ANALYSIS")
     print("="*80)
     
-    # 1. Mostrar dataset
+    # 1. Show dataset
     print_dataset_info()
     
-    # 2. Resolver com programação dinâmica
-    print("\n🔍 RESOLVENDO COM PROGRAMAÇÃO DINÂMICA...")
+    # 2. Solve with dynamic programming
+    print("\n🔍 SOLVING WITH DYNAMIC PROGRAMMING...")
     dp_solver = KnapsackDynamicSolver()
     dp_solver.solve()
     dp_solver.print_solution()
     
-    # 3. Comparar com guloso
-    print("\n🔍 COMPARANDO COM ALGORITMO GULOSO...")
+    # 3. Compare with greedy
+    print("\n🔍 COMPARING WITH GREEDY ALGORITHM...")
     compare_with_greedy()
     
-    # 4. Tentar AMPL se disponível
+    # 4. Try AMPL if available
     if AMPL_AVAILABLE:
         try:
             from ampl_files_generator import generate_all_ampl_files
-            print("\n🔍 RESOLVENDO COM AMPL...")
+            print("\n🔍 SOLVING WITH AMPL...")
             generate_all_ampl_files()
             
             ampl_solver = KnapsackAMPLSolver()
             if ampl_solver.solve_knapsack():
-                print("\n✅ Solução AMPL:")
+                print("\n✅ AMPL Solution:")
                 ampl_solver.print_solution()
             else:
-                print("❌ Falha ao resolver com AMPL.")
+                print("❌ Failed to solve with AMPL.")
         except Exception as e:
-            print(f"❌ Erro com AMPL: {e}")
+            print(f"❌ Error with AMPL: {e}")
     else:
-        print("\n⚠️  AMPL não disponível. Instale com: pip install amplpy")
+        print("\n⚠️  AMPL not available. Install with: pip install amplpy")
     
     print("\n" + "="*80)
-    print("ANÁLISE COMPLETA FINALIZADA")
+    print("FULL ANALYSIS COMPLETE")
     print("="*80)
 
 def main():
     """
-    Função principal com menu interativo
+    Main function with interactive menu
     """
-    print("Bem-vindo ao Solucionador do Problema da Mochila!")
+    print("Welcome to the Knapsack Problem Solver!")
     
     while True:
         try:
             show_menu()
-            choice = input("Digite sua escolha: ").strip()
+            choice = input("Enter your choice: ").strip()
             
             if choice == '0':
-                print("Saindo... Obrigado por usar o programa!")
+                print("Exiting... Thanks for using the program!")
                 sys.exit(0)
             elif choice == '1':
                 option_1()
@@ -141,16 +140,16 @@ def main():
             elif choice == '6':
                 option_6()
             else:
-                print("❌ Opção inválida. Tente novamente.")
+                print("❌ Invalid option. Please try again.")
             
-            input("\nPressione Enter para continuar...")
+            input("\nPress Enter to continue...")
             
         except KeyboardInterrupt:
-            print("\n\nPrograma interrompido pelo usuário. Saindo...")
+            print("\n\nProgram interrupted by user. Exiting...")
             sys.exit(0)
         except Exception as e:
-            print(f"\n❌ Erro inesperado: {e}")
-            input("Pressione Enter para continuar...")
+            print(f"\n❌ Unexpected error: {e}")
+            input("Press Enter to continue...")
 
 if __name__ == "__main__":
     main()

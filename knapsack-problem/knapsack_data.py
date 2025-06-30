@@ -1,58 +1,57 @@
 # -*- coding: utf-8 -*-
 """
-Dados do Problema da Mochila - Cenário RPG
-Autor: José Brito
+Knapsack Problem Data - RPG Scenario
 
-Dataset criado como parte de um cenário de jogo de RPG, onde o objetivo é decidir 
-quais itens um personagem deve carregar em sua mochila (que suporta 10kg) para 
-maximizar o valor total dos objetos, sem ultrapassar o limite de peso.
+Dataset created as part of an RPG game scenario, where the goal is to decide 
+which items a character should carry in their backpack (which supports 10kg) to 
+maximize the total value of the objects, without exceeding the weight limit.
 """
 
-# Dados dos itens do RPG
+# RPG item data
 ITENS_DATA = {
-    'Moeda_Antiga': {'peso': 1.0, 'valor': 300, 'descricao': 'Moeda de ouro rara, valiosa para colecionadores.'},
-    'Diamante': {'peso': 2.0, 'valor': 1500, 'descricao': 'Pedra preciosa encontrada em um baú misterioso.'},
-    'Barra_de_Ouro': {'peso': 5.0, 'valor': 2500, 'descricao': 'Barra de ouro puro, mas muito pesada.'},
-    'Colar_de_Prata': {'peso': 1.5, 'valor': 800, 'descricao': 'Colar de prata decorado com pedras preciosas.'},
-    'Pocao_Magica': {'peso': 3.0, 'valor': 1200, 'descricao': 'Poção mágica de valor inestimável para alquimistas.'},
-    'Livro_Antigo': {'peso': 2.5, 'valor': 500, 'descricao': 'Livro antigo contendo segredos perdidos da civilização.'},
-    'Coroa': {'peso': 4.0, 'valor': 2200, 'descricao': 'Coroa real incrustada com rubis e safiras.'},
-    'Estatua_de_Jade': {'peso': 6.0, 'valor': 2800, 'descricao': 'Estatueta de jade sagrado, venerada por povos antigos.'},
-    'Anel_de_Safira': {'peso': 0.5, 'valor': 900, 'descricao': 'Anel de safira que pertencia a um rei lendário.'},
-    'Mapa_do_Tesouro': {'peso': 1.0, 'valor': 1100, 'descricao': 'Mapa que leva a um tesouro escondido, valioso para caçadores.'}
+    'Ancient_Coin': {'weight': 1.0, 'value': 300, 'description': 'Rare gold coin, valuable for collectors.'},
+    'Diamond': {'weight': 2.0, 'value': 1500, 'description': 'Precious stone found in a mysterious chest.'},
+    'Gold_Bar': {'weight': 5.0, 'value': 2500, 'description': 'Pure gold bar, but very heavy.'},
+    'Silver_Necklace': {'weight': 1.5, 'value': 800, 'description': 'Silver necklace decorated with precious stones.'},
+    'Magic_Potion': {'weight': 3.0, 'value': 1200, 'description': 'Priceless magic potion for alchemists.'},
+    'Ancient_Book': {'weight': 2.5, 'value': 500, 'description': 'Ancient book containing lost secrets of civilization.'},
+    'Crown': {'weight': 4.0, 'value': 2200, 'description': 'Royal crown encrusted with rubies and sapphires.'},
+    'Jade_Statue': {'weight': 6.0, 'value': 2800, 'description': 'Sacred jade figurine, revered by ancient peoples.'},
+    'Sapphire_Ring': {'weight': 0.5, 'value': 900, 'description': 'Sapphire ring that belonged to a legendary king.'},
+    'Treasure_Map': {'weight': 1.0, 'value': 1100, 'description': 'Map leading to hidden treasure, valuable to hunters.'}
 }
 
-# Configurações do problema
-PESO_MAX_MOCHILA = 10  # kg
+# Problem settings
+MAX_KNAPSACK_WEIGHT = 10  # kg
 
 def get_items_list():
-    """Retorna a lista de nomes dos itens"""
+    """Returns the list of item names"""
     return list(ITENS_DATA.keys())
 
 def get_item_weights():
-    """Retorna dicionário com pesos dos itens"""
-    return {item: data['peso'] for item, data in ITENS_DATA.items()}
+    """Returns a dictionary with item weights"""
+    return {item: data['weight'] for item, data in ITENS_DATA.items()}
 
 def get_item_values():
-    """Retorna dicionário com valores dos itens"""
-    return {item: data['valor'] for item, data in ITENS_DATA.items()}
+    """Returns a dictionary with item values"""
+    return {item: data['value'] for item, data in ITENS_DATA.items()}
 
 def get_item_descriptions():
-    """Retorna dicionário com descrições dos itens"""
-    return {item: data['descricao'] for item, data in ITENS_DATA.items()}
+    """Returns a dictionary with item descriptions"""
+    return {item: data['description'] for item, data in ITENS_DATA.items()}
 
 def print_dataset_info():
-    """Imprime informações sobre o dataset"""
+    """Prints information about the dataset"""
     print("=" * 80)
-    print("ESTUDO DO PROBLEMA DA MOCHILA - CENÁRIO RPG")
-    print("Autor: José Brito")
+    print("KNAPSACK PROBLEM STUDY - RPG SCENARIO")
+    print("Author: José Brito")
     print("=" * 80)
-    print(f"Capacidade máxima da mochila: {PESO_MAX_MOCHILA} kg")
-    print(f"Número de itens disponíveis: {len(ITENS_DATA)}")
-    print("\nItens disponíveis:")
+    print(f"Maximum backpack capacity: {MAX_KNAPSACK_WEIGHT} kg")
+    print(f"Number of available items: {len(ITENS_DATA)}")
+    print("\nAvailable Items:")
     print("-" * 80)
     
     for item, data in ITENS_DATA.items():
-        print(f"{item:<20} | Peso: {data['peso']:>4} kg | Valor: ${data['valor']:>4} | {data['descricao']}")
+        print(f"{item:<20} | Weight: {data['weight']:>4} kg | Value: ${data['value']:>4} | {data['description']}")
     
     print("-" * 80)
